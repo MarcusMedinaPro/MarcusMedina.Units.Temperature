@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageId>MarcusMedina.Units.Temperature</PackageId>
+    <Version>0.1.0</Version>
+    <Title>MarcusMedina.Units.Temperature</Title>
+    <Description>Fluent temperature unit conversion — Celsius, Fahrenheit, Kelvin, Rankine, and historical scales.</Description>
+    <Authors>Marcus Medina</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/MarcusMedinaPro/MarcusMedina.Units.Temperature</RepositoryUrl>
+    <PackageTags>temperature;units;conversion;fluent;celsius;fahrenheit;kelvin</PackageTags>
+    <NoWarn>CS1573;CS1591</NoWarn>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RootNamespace>MarcusMedina.Units.Temperature</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\assets\open-source.svg" Pack="true" PackagePath="assets\" />
+  </ItemGroup>
+</Project>
