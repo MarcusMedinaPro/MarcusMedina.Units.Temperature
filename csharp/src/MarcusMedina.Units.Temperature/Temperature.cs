@@ -25,6 +25,14 @@ public readonly struct Temperature : IComparable<Temperature>, IEquatable<Temper
     public static bool operator >(Temperature a, Temperature b) => a.Kelvin > b.Kelvin;
     public static bool operator <=(Temperature a, Temperature b) => a.Kelvin <= b.Kelvin;
     public static bool operator >=(Temperature a, Temperature b) => a.Kelvin >= b.Kelvin;
+    /// <summary>
+    /// Adding two absolute temperatures together is physically meaningless — 100°C + 10°C is not 110°C,
+    /// since Kelvin values don't compose that way for an affine scale. If you're modeling heat transfer
+    /// (e.g. a hot coffee cooled by a room-temperature spoon), you need a weighted blend based on mass
+    /// and heat capacity, not a raw sum — this struct alone can't do that. Use <see cref="Kelvin"/>
+    /// directly if you specifically need this arithmetic anyway.
+    /// </summary>
+    [Obsolete("Adding two absolute Temperature values is physically meaningless — 100°C + 10°C is not 110°C. Use the Kelvin property directly if you really need this.")]
     public static Temperature operator +(Temperature a, Temperature b) => new(a.Kelvin + b.Kelvin);
     public static Temperature operator -(Temperature a, Temperature b) => new(a.Kelvin - b.Kelvin);
     public static Temperature operator *(Temperature t, double factor) => new(t.Kelvin * factor);

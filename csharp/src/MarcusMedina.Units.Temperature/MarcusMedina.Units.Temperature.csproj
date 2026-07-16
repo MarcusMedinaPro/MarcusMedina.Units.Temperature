@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>MarcusMedina.Units.Temperature</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Title>MarcusMedina.Units.Temperature</Title>
     <Description>Fluent temperature unit conversion — Celsius, Fahrenheit, Kelvin, Rankine, and historical scales.</Description>
     <Authors>Marcus Medina</Authors>
