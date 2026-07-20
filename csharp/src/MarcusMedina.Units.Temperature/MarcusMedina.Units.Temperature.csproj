@@ -6,12 +6,13 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>MarcusMedina.Units.Temperature</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Title>MarcusMedina.Units.Temperature</Title>
     <Description>Fluent temperature unit conversion — Celsius, Fahrenheit, Kelvin, Rankine, and historical scales.</Description>
     <Authors>Marcus Medina</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/MarcusMedinaPro/MarcusMedina.Units.Temperature/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MarcusMedinaPro/MarcusMedina.Units.Temperature</RepositoryUrl>
     <PackageTags>temperature;units;conversion;fluent;celsius;fahrenheit;kelvin</PackageTags>
     <NoWarn>CS1573;CS1591</NoWarn>
