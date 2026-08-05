@@ -27,7 +27,7 @@ Convert between Celsius, Fahrenheit, Kelvin, Rankine, and even Réaumur or Røme
 - ✅ **Historical scales** — Réaumur, Delisle, Newton, Rømer
 - ✅ **Strongly typed** — `Temperature` struct instead of a raw `double`, so units can't be mixed up by accident
 - ✅ **Fluent API** — `100.DegreesCelsius().ToFahrenheit()`
-- ✅ **Comparable & arithmetic** — `+`, `-`, `*`, `/`, and full comparison operators
+- ✅ **Comparable & arithmetic** — `-`, `*`, `/`, and full comparison operators (`+` exists but is marked `[Obsolete]` — see below)
 - ✅ **Zero dependencies** — pure .NET, no external packages
 
 ---
@@ -50,19 +50,26 @@ using MarcusMedina.Units.Temperature.US;
 using MarcusMedina.Units.Temperature.Historical;
 
 // Create a Temperature from any supported unit
-Temperature boiling = 100.DegreesCelsius();
-Temperature oldScale = 80.DegreesReaumur();
+Temperature boiling  = 100.DegreesCelsius();
+Temperature freezing = 0.DegreesReaumur();   // 0°Ré = 0°C, same as freezing
 
 // Convert to whatever unit you need
-double fahrenheit = boiling.ToFahrenheit();  // 212
-double celsius    = oldScale.ToCelsius();    // 100
+double fahrenheit = boiling.ToFahrenheit();   // 212
+double celsius    = freezing.ToCelsius();     // 0
 
 // Arithmetic works directly on Temperature values
-Temperature warmer = boiling + 10.DegreesCelsius();
+Temperature difference = boiling - freezing;  // 100 K (equivalent to a 100°C span)
 
 // Comparisons
-bool hotter = boiling > oldScale;
+bool hotter = boiling > freezing;             // true
 ```
+
+> **Note on `+`:** adding two *absolute* temperatures together doesn't mean anything physically —
+> 100°C + 10°C isn't 110°C. The `+` operator still exists and still compiles, but it's marked
+> `[Obsolete]`, so using it produces a compiler warning explaining why. If you're actually modelling
+> heat transfer (e.g. a hot coffee cooled by a room-temperature spoon), what you need is a
+> mass/heat-capacity-weighted blend, not a raw sum — this struct alone can't do that for you. Use the
+> `Kelvin` property directly if you specifically need the raw addition anyway.
 
 ---
 
