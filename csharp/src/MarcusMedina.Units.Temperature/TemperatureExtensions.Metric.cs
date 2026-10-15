@@ -9,14 +9,23 @@ namespace MarcusMedina.Units.Temperature.Metric;
 /// </summary>
 public static class MetricTemperatureExtensions
 {
-    /// <summary>Konverterar grader Celsius till Temperature. K = °C + 273.15</summary>
-    public static Temperature DegreesCelsius(this int v) => new(v + 273.15);
-    public static Temperature DegreesCelsius(this double v) => new(v + 273.15);
+    extension(int v)
+    {
+        /// <summary>Konverterar grader Celsius till Temperature. K = °C + 273.15</summary>
+        public Temperature DegreesCelsius() => new(v + 273.15);
+        /// <summary>Konverterar Kelvin till Temperature.</summary>
+        public Temperature Kelvin() => new(v);
+    }
 
-    /// <summary>Konverterar Kelvin till Temperature.</summary>
-    public static Temperature Kelvin(this int v) => new(v);
-    public static Temperature Kelvin(this double v) => new(v);
+    extension(double v)
+    {
+        public Temperature DegreesCelsius() => new(v + 273.15);
+        public Temperature Kelvin() => new(v);
+    }
 
-    public static double ToCelsius(this Temperature t) => t.Kelvin - 273.15;
-    public static double ToKelvin(this Temperature t) => t.Kelvin;
+    extension(Temperature t)
+    {
+        public double ToCelsius() => t.Kelvin - 273.15;
+        public double ToKelvin() => t.Kelvin;
+    }
 }
